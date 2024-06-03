@@ -109,7 +109,7 @@ const UpdatePost: React.FC = () => {
                 <label className="block mb-1">Is Paid:</label>
                 <input type="checkbox" checked={isPaid} onChange={(e) => setIsPaid(e.target.checked)} className="mr-2" />
             </div>
-            <button onClick={handleUpdate} className="bg-blue-900 text-white px-4 py-2 rounded-md hover:bg-blue-950">Update Post</button>
+            <button onClick={handleUpdate} className="bg-blue-900 text-white px-4 py-2 rounded-md hover:bg-blue-950">Update Gig</button>
         </div>
     );
 };

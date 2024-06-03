@@ -44,7 +44,7 @@ const Home: React.FC = () => {
                 <input
                     className="border border-gray-300 rounded-md p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-900 bg-gray-100 focus:bg-white"
                     type="text"
-                    placeholder="Search posts..."
+                    placeholder="Search Gigs..."
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
@@ -74,8 +74,8 @@ const Home: React.FC = () => {
                 >
                     {showCreatePost ? 'Close Form' : 'Create Gig'}
                 </button>
-                {isNewPostCreated && <div className="bg-green-200 p-2 mb-4 rounded">New post created</div>} {/* Confirmation box for new post */}
-                {showCreatePost && <CreatePost onPostCreated={handlePostCreated} />} {/* Pass callback to handle new post creation */}
+                {isNewPostCreated && <div className="bg-green-200 p-2 mb-4 rounded">New post created</div>} 
+                {showCreatePost && <CreatePost onPostCreated={handlePostCreated} />} 
                 <PostList searchTerm={searchTerm} isOnlineSearch={isOnlineSearch} isPaidSearch={isPaidSearch} />
             </div>
         </div>

@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 
 interface CreatePostProps {
-  onPostCreated: () => void; // Callback to notify parent component of new post creation
+  onPostCreated: () => void; 
 }
 
 const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
   const { user } = useContext(AuthContext);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [categoryName, setCategoryName] = useState('');
+  const [categoryName, setCategoryName] = useState('hackathons'); 
   const [isOnline, setIsOnline] = useState('');
   const [isPaid, setIsPaid] = useState(false);
   const username = user ? user : '';
@@ -22,7 +22,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
     setContent(event.target.value);
   };
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setCategoryName(event.target.value);
   };
 
@@ -77,13 +77,21 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
         />
       </div>
       <div className="mb-4">
-        <input
+        <select
           className="border border-gray-400 p-2 w-full"
-          type="text"
-          placeholder="Category Name"
           value={categoryName}
           onChange={handleCategoryChange}
-        />
+        >
+          <option value="hackathons">Hackathons</option>
+          <option value="home decor">Home Decor</option>
+          <option value="Photography">Photography</option>
+          <option value="Writing">Writing</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Event Planning">Event Planning</option>
+          <option value="Tutoring">Tutoring</option>
+          <option value="Other">Other</option>
+          <option value="acting">Acting</option>
+        </select>
       </div>
       <div className="mb-4">
         <select
@@ -97,7 +105,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
           <option value="any">Any</option>
         </select>
       </div>
-      <div className="mb-4 flex items-center"> {/* Align items in a row */}
+      <div className="mb-4 flex items-center">
         <input
           className="border border-gray-400 p-2"
           type="checkbox"
@@ -105,7 +113,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
           checked={isPaid}
           onChange={handleIsPaidChange}
         />
-        <label htmlFor="isPaid" className="ml-2">Is Paid</label> {/* Add margin-left */}
+        <label htmlFor="isPaid" className="ml-2">Is Paid</label>
       </div>
       <button
         className="bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded"

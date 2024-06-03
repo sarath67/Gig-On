@@ -1,4 +1,5 @@
 {
+  "proxy": "https://gig-onapi.sarath-s2022cse.workers.dev",
   "name": "gig-on",
   "private": true,
   "version": "0.0.0",

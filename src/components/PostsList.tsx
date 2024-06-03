@@ -69,7 +69,7 @@ const PostList: React.FC<PostListProps> = ({ searchTerm, isOnlineSearch, isPaidS
 
     return (
         <div>
-            <h2 className="text-2xl font-semibold mb-4">All Posts</h2>
+            <h2 className="text-2xl font-semibold mb-4">All Gigs</h2>
             {isLoading ? (
                 <div className="flex justify-center items-center">
                     <Loading />

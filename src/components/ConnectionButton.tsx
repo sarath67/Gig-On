@@ -1,18 +1,20 @@
-
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
+import Loading from './Loading';
 
 const CreateConnectionButton: React.FC = () => {
   const [connectionStatus, setConnectionStatus] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(false); // Add isLoading state
   const { user: user1_username } = useContext(AuthContext);
   const { username: user2_username } = useParams<{ username: string }>();
   const [requester, setRequester] = useState<string | null>(null);
-  const [acceptor,setAcceptor] = useState<string | null>(null);
-  const [connectionId, setConnectionId] = useState<number | null>(null); 
+  const [acceptor, setAcceptor] = useState<string | null>(null);
+  const [connectionId, setConnectionId] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchConnectionStatus = async () => {
+      setIsLoading(true); // Set loading state to true before fetching data
       try {
         const response = await fetch(`/api/connections/${user1_username}/${user2_username}`, {
           method: 'GET',
@@ -24,13 +26,15 @@ const CreateConnectionButton: React.FC = () => {
           const data = await response.json();
           setConnectionStatus(data.results[0].status);
           setRequester(data.results[0].user1_username);
-          setAcceptor(data.results[0].user2_username)
+          setAcceptor(data.results[0].user2_username);
           setConnectionId(data.results[0].id);
         } else {
           console.error('Error fetching connection status');
         }
       } catch (error) {
         console.error('Error fetching connection status:', error);
+      } finally {
+        setIsLoading(false); // Set loading state to false after fetching data
       }
     };
 
@@ -117,22 +121,28 @@ const CreateConnectionButton: React.FC = () => {
 
   return (
     <>
-      <button onClick={handleButtonClick}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        {buttonText}
-      </button>
-      {connectionStatus === 0 && (
-        <button onClick={handleRemoveButtonClick}
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4">
-          Remove Request
-        </button>
+      {isLoading ? ( // Render loading component if isLoading is true
+        <Loading />
+      ) : (
+        <>
+          <button onClick={handleButtonClick}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            {buttonText}
+          </button>
+          {connectionStatus === 0 && (
+            <button onClick={handleRemoveButtonClick}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4">
+              Remove Request
+            </button>
+          )}
+          {connectionStatus === 1 && (
+            <button onClick={handleRemoveButtonClick}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4">
+              Remove Connection
+            </button>
+          )}
+        </>
       )}
-      {connectionStatus ===1 &&(
-        <button onClick={handleRemoveButtonClick}
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4">
-          Remove Connection
-        </button>
-      ) }
     </>
   );
 };

@@ -77,7 +77,7 @@ const ProfilePage: React.FC = () => {
         </div>
       ) : (
         <>{user !== username && user && <CreateConnectionButton />}
-          <h1 className="text-2xl font-semibold mb-4">Your Posts</h1>
+          <h1 className="text-2xl font-semibold mb-4">Gigs</h1>
           {posts.map((post) => (
             <div key={post.id} className="border border-gray-200 rounded-xl p-4 mb-4 bg-gray-100 hover:cursor-pointer hover:bg-gray-200 m-6">
               <h3 className="text-lg font-semibold">{post.title}</h3>

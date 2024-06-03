@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
     navigate('/');
   };
   const handleConnections = () => {
-    navigate(`/connections/`); // Navigate to ConnectionsList of logged-in user
+    navigate(`/connections/`);
   };
 
   return (
@@ -59,11 +59,11 @@ const Navbar: React.FC = () => {
               </div>
             ) : (
               <div>
-                <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black hover:text-white" onClick={handleLogin}>
+                <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-950 hover:text-white" onClick={handleLogin}>
                   <i className="bi bi-box-arrow-in-right"></i>
                   <div className="text-[15px] ml-4 font-bold">Login</div>
                 </div>
-                <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black hover:text-white" onClick={handleSignup}>
+                <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-950 hover:text-white" onClick={handleSignup}>
                   <i className="bi bi-box-arrow-in-right"></i>
                   <div className="text-[15px] ml-4  font-bold">Sign up</div>
                 </div>
