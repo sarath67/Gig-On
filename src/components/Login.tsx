@@ -10,7 +10,7 @@ const Login: React.FC = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('https://gig-onapi.sarath-s2022cse.workers.dev/users/' + username, {
+            const response = await fetch('/api/users/' + username, {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer 1234',
