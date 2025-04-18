@@ -15,6 +15,6 @@ export default defineConfig({
       },
     },
   },
-  base: 'https://gig-on.pages.dev/',
+  base: 'https://gig-on.pages.dev',
   plugins: [react()],
 })
