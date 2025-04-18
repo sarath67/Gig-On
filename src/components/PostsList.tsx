@@ -37,7 +37,12 @@ const PostList: React.FC<PostListProps> = ({ searchTerm, isOnlineSearch, isPaidS
   const fetchPosts = async () => {
     setIsLoading(true)
     try {
-      const response = await fetch("/api/posts", {
+      const API_BASE_URL =
+      import.meta.env.DEV
+        ? "/api"
+        : "https://gig-onapi.sarath-s2022cse.workers.dev"
+
+      const response = await fetch(`${API_BASE_URL}/posts`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
