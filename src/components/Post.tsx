@@ -28,8 +28,9 @@ const Post: React.FC = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`/api/posts/${id}`, {
+        const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/posts/${id}`, {
           method: "GET",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer 1234",
@@ -52,8 +53,9 @@ const Post: React.FC = () => {
   const handleDelete = async () => {
     setIsDeleting(true)
     try {
-      const response = await fetch(`/api/posts/${id}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/posts/${id}`, {
         method: "DELETE",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer 1234",

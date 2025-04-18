@@ -46,8 +46,9 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
 
     setIsSubmitting(true)
     try {
-      const response = await fetch("/api/posts", {
+      const response = await fetch("https://gig-onapi.sarath-s2022cse.workers.dev/posts", {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer 1234",

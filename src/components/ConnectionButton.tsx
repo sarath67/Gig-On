@@ -16,8 +16,9 @@ const CreateConnectionButton: React.FC = () => {
     const fetchConnectionStatus = async () => {
       setIsLoading(true); // Set loading state to true before fetching data
       try {
-        const response = await fetch(`/api/connections/${user1_username}/${user2_username}`, {
+        const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/connections/${user1_username}/${user2_username}`, {
           method: 'GET',
+          mode: "cors",
           headers: {
             'Authorization': 'Bearer 1234'
           },
@@ -44,8 +45,9 @@ const CreateConnectionButton: React.FC = () => {
   const handleButtonClick = async () => {
     if (connectionStatus === 0 && acceptor === user1_username) {
       try {
-        const response = await fetch(`/api/connections/${connectionId}`, {
+        const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/connections/${connectionId}`, {
           method: 'PUT',
+          mode: "cors",
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer 1234'
@@ -63,8 +65,9 @@ const CreateConnectionButton: React.FC = () => {
       }
     } else if (connectionStatus === null) {
       try {
-        const response = await fetch(`/api/connections`, {
+        const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/connections`, {
           method: 'POST',
+          mode: "cors",
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer 1234'
@@ -88,8 +91,9 @@ const CreateConnectionButton: React.FC = () => {
     if (!connectionId) return;
   
     try {
-      const response = await fetch(`/api/connections/${connectionId}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/connections/${connectionId}`, {
         method: 'DELETE',
+        mode: "cors",
         headers: {
           'Authorization': 'Bearer 1234'
         },

@@ -35,8 +35,9 @@ const UpdatePost: React.FC = () => {
     const fetchPost = async () => {
       setIsLoading(true)
       try {
-        const response = await fetch(`/api/posts/${id}`, {
+        const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/posts/${id}`, {
           method: "GET",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer 1234",
@@ -77,8 +78,9 @@ const UpdatePost: React.FC = () => {
     setError("")
 
     try {
-      const response = await fetch(`/api/posts/${id}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/posts/${id}`, {
         method: "PUT",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer 1234",

@@ -31,8 +31,9 @@ const ProfilePage: React.FC = () => {
   const fetchUserPosts = async () => {
     setIsLoadingPosts(true)
     try {
-      const response = await fetch(`/api/post/${username}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/post/${username}`, {
         method: "GET",
+        mode: "cors",
         headers: {
           Authorization: "Bearer 1234",
         },
@@ -54,8 +55,9 @@ const ProfilePage: React.FC = () => {
 
   const handleDelete = async (postId: number) => {
     try {
-      const response = await fetch(`/api/posts/${postId}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/posts/${postId}`, {
         method: "DELETE",
+        mode: "cors",
         headers: {
           Authorization: "Bearer 1234",
         },

@@ -32,8 +32,9 @@ const Signup: React.FC = () => {
     setError("")
 
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch("https://gig-onapi.sarath-s2022cse.workers.dev/users", {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer 1234",

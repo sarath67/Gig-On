@@ -25,8 +25,9 @@ const Login: React.FC = () => {
     setError("")
 
     try {
-      const response = await fetch("/api/users/" + username, {
+      const response = await fetch("https://gig-onapi.sarath-s2022cse.workers.dev/users/" + username, {
         method: "GET",
+        mode: "cors",
         headers: {
           Authorization: "Bearer 1234",
         },

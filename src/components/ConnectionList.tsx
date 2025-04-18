@@ -29,7 +29,7 @@ const ConnectionsList: React.FC = () => {
   const fetchConnections = async () => {
     setIsLoading(true)
     try {
-      const response = await fetch(`/api/connections/${user}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/connections/${user}`, {
         method: "GET",
         headers: {
           Authorization: "Bearer 1234",
@@ -65,7 +65,7 @@ const ConnectionsList: React.FC = () => {
 
   const acceptConnection = async (connectionId: number) => {
     try {
-      const response = await fetch(`/api/connections/${connectionId}`, {
+      const response = await fetch(`https://gig-onapi.sarath-s2022cse.workers.dev/connections/${connectionId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
