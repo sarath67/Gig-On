@@ -44,6 +44,7 @@ const PostList: React.FC<PostListProps> = ({ searchTerm, isOnlineSearch, isPaidS
 
       const response = await fetch(`${API_BASE_URL}/posts`, {
         method: "GET",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer 1234",
