@@ -13,8 +13,10 @@ function App() {
   return (
     <>
       <Router>
+      <div className="flex flex-col min-h-screen">
         <Navbar />
-        <div className="ml-64">
+        <div >
+        <main className="flex-grow md:ml-64">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -24,6 +26,8 @@ function App() {
             <Route path="/update/:id" element={<UpdatePost/>} />
             <Route path="/connections" element={<ConnectionsList />} />
           </Routes>
+          </main>
+          </div>
         </div>
       </Router>
     </>

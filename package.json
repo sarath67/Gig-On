@@ -12,13 +12,18 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "github:tailwindcss/typography",
     "axios": "^1.6.7",
+    "gig-on": "file:",
     "ldrs": "^1.0.1",
+    "lucide-react": "^0.488.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "socket.io": "^4.7.4",
-    "socket.io-client": "^4.7.4"
+    "socket.io-client": "^4.7.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20.11.26",
